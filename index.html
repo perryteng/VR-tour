@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=“ja”>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Groups Radomization</title>
+    <style>
+        /* 1. 进入问卷前看到的提示 */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>アンケート準備中</h1>
+    <p>しばらくお待ちください。ランダムにアンケートタイプを振り分けています。</p>
+    <script>
+        // 定义 2 个 Google Forms 链接
+        // 将占位符替换为实际的 Google Forms 链接
+        const forms = [
+            'https://zh.wikipedia.org/wiki/1%E6%9C%88', // ←这边贴你的link 1 - 对应分组 1
+            'https://zh.wikipedia.org/wiki/2%E6%9C%88', // ←贴link 2 - 对应分组 2
+        ];
+
+        // 2. 随机生成一个数字，作为数组的索引
+        // Math.floor() 向下取整，得到 0 到 1 的整数
+        const randomIndex = Math.floor(Math.random() * forms.length); 
+
+        // 3. 获取对应的 Google Forms 链接
+        const targetUrl = forms[randomIndex];
+
+        // 4. (可选) 打印分配结果到控制台
+        console.log(`随机分配的分组索引 (0-2): ${randomIndex}`);
+        console.log(`重定向到链接: ${targetUrl}`);
+        
+        // 5. 将用户重定向到目标链接
+        window.location.replace(targetUrl); 
+
+    </script>
+</div>
+
+</body>
+</html>
